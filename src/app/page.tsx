@@ -19,7 +19,7 @@
           setBooks(data)
           setLoading(false)
         } catch (err) {
-          setError("Failed to load books. Please try again later.")
+          setError(err as string)
           setLoading(false)
         }
       }
@@ -39,7 +39,7 @@
         setShowModal(false)
         setBookToDelete(null)
       } catch (err) {
-        setError("Failed to delete book. Please try again later.")
+        setError(err as string)
         setShowModal(false)
         setBookToDelete(null)
       }

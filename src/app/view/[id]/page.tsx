@@ -1,14 +1,14 @@
 "use client"
 
 import { useState, useEffect } from "react"
-import { useRouter } from "next/navigation"
+// import { useRouter } from "next/navigation"
 import Link from "next/link"
-import { type Book, getBookById, deleteBook } from "@/lib/api"
+import { type Book, getBookById } from "@/lib/api"
 import { ArrowLeft, SquarePen } from "lucide-react"
 import { use } from "react"
 
 export default function ViewBook({ params }: { params: Promise<{ id: string }> }) {
-  const router = useRouter()
+  // const router = useRouter()
   const { id } = use(params)
 
   const [book, setBook] = useState<Book | null>(null)
@@ -22,7 +22,7 @@ export default function ViewBook({ params }: { params: Promise<{ id: string }> }
         setBook(data)
         setLoading(false)
       } catch (err) {
-        setError("Failed to load book details. Please try again later.")
+        setError(err as string) 
         setLoading(false)
       }
     }
@@ -30,16 +30,16 @@ export default function ViewBook({ params }: { params: Promise<{ id: string }> }
     fetchBook()
   }, [id])
 
-  const handleDeleteBook = async () => {
-    if (window.confirm("Are you sure you want to delete this book?")) {
-      try {
-        await deleteBook(id)
-        router.push("/")
-      } catch (err) {
-        setError("Failed to delete book. Please try again later.")
-      }
-    }
-  }
+  // const handleDeleteBook = async () => {
+  //   if (window.confirm("Are you sure you want to delete this book?")) {
+  //     try {
+  //       await deleteBook(id)
+  //       router.push("/")
+  //     } catch (err) {
+  //       setError(err as string)
+  //     }
+  //   }
+  // }
 
   if (loading) {
     return (

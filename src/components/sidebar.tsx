@@ -2,7 +2,7 @@
 
 import Link from "next/link"
 import { usePathname } from "next/navigation"
-import { BookCopy, BookOpen, BookPlus, Library, PlusSquare } from "lucide-react"
+import { BookCopy, BookPlus, Library } from "lucide-react"
 
 export default function Sidebar() {
   const pathname = usePathname()

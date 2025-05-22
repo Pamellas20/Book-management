@@ -17,7 +17,7 @@ export interface BookInput {
 const API_URL = "http://localhost:4000/api/v1"
 
 export async function getAllBooks(): Promise<Book[]> {
-  const response: any = await fetch(`${API_URL}/books`)
+  const response = await fetch(`${API_URL}/books`)
 
   if (!response.ok) {
     throw new Error("Failed to fetch books")

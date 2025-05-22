@@ -37,7 +37,7 @@ export default function EditBook({ params }: { params: Promise<{ id: string }> }
         })
         setLoading(false)
       } catch (err) {
-        setError("Failed to load book details. Please try again later.")
+        setError(err as string)
         setLoading(false)
       }
     }
@@ -62,7 +62,7 @@ export default function EditBook({ params }: { params: Promise<{ id: string }> }
       await updateBook(id, formData)
       router.push("/")
     } catch (err) {
-      setError("Failed to update book. Please try again.")
+      setError(err as string)
       setSaving(false)
     }
   }

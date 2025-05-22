@@ -36,7 +36,7 @@ export default function AddBook() {
       await createBook(formData)
       router.push("/")
     } catch (err) {
-      setError("Failed to add book. Please try again.")
+      setError(err as string)
       setLoading(false)
     }
   }
